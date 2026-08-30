@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Newborn Nomads — Born on the Road</title>
+<style>
+/* ================================================================
+   THE NEWBORN NOMADS — CAMPAIGN ONEPAGER "BORN ON THE ROAD"
+   Zelfde stijl als mediakit.html. PDF genereren: zie ../README.md
+   (Chrome headless), uitvoer: TheNewbornNomads-BornOnTheRoad.pdf
+   ================================================================ */
+
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-400-normal.woff2);font-weight:400;font-style:normal}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-600-normal.woff2);font-weight:600;font-style:normal}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-700-normal.woff2);font-weight:700;font-style:normal}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-700-italic.woff2);font-weight:700;font-style:italic}
+@font-face{font-family:"Karla";src:url(fonts/karla-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Karla";src:url(fonts/karla-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"Karla";src:url(fonts/karla-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-600-normal.woff2);font-weight:600}
+
+:root{
+  --cream:#F6F0E4; --sand:#ECE2CE; --ink:#4A4238;
+  --rust:#8C3B1B;  --rust-soft:#C77B4E;
+  --olive:#5C6644; --olive-deep:#3F4630; --line:#C9BBA0;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Karla",sans-serif;
+  --mono:"IBM Plex Mono",monospace;
+}
+
+@page{ size:A4; margin:0; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:10.5pt}
+body{font-family:var(--body);color:var(--ink);line-height:1.55}
+
+.page{
+  position:relative; width:210mm; height:297mm; overflow:hidden;
+  background:var(--cream); padding:18mm 18mm 16mm;
+  display:flex; flex-direction:column;
+}
+
+.eyebrow{
+  font-family:var(--mono); font-size:7.6pt; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--olive); margin-bottom:7mm;
+}
+.eyebrow .dash{color:var(--rust); letter-spacing:.05em; margin-right:.7em; font-weight:600}
+
+h1{font-family:var(--display); font-weight:700; font-size:31pt; line-height:1.03; letter-spacing:-.01em; margin-bottom:6mm}
+h1 em{font-style:italic; color:var(--rust)}
+
+.lead{font-size:10.6pt; line-height:1.66; max-width:158mm; margin-bottom:8mm}
+
+.stamp{
+  position:absolute; top:12mm; right:14mm; width:34mm; height:34mm;
+  transform:rotate(-7deg);
+}
+
+/* chapters */
+.chapter{border-top:1px solid var(--line); padding:5.2mm 0; display:flex; gap:7mm}
+.chapter:first-of-type{border-top:none}
+.chapter .ch-l{width:52mm; flex:none}
+.chapter .ch-l .num{font-family:var(--mono); font-size:8pt; color:var(--rust); letter-spacing:.14em}
+.chapter .ch-l h3{font-family:var(--display); font-weight:600; font-size:12pt; line-height:1.25; margin-top:1mm}
+.chapter .ch-l .when{font-family:var(--mono); font-size:7.2pt; letter-spacing:.12em; text-transform:uppercase; color:var(--olive); margin-top:1.4mm}
+.chapter .ch-r{flex:1; font-size:9.8pt; line-height:1.6; align-self:center}
+
+/* partner block */
+.partner{
+  background:var(--sand); border:1px solid var(--line); border-radius:2mm;
+  padding:6.5mm 7mm 5.5mm; margin-top:7mm;
+}
+.partner .label{
+  font-family:var(--mono); font-size:7.4pt; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--rust); margin-bottom:3mm; display:block;
+}
+.partner ul{list-style:none; columns:2; column-gap:9mm}
+.partner li{
+  font-size:9.4pt; line-height:1.5; padding:1.5mm 0 1.5mm 6mm;
+  position:relative; break-inside:avoid;
+}
+.partner li::before{content:"→"; position:absolute; left:0; color:var(--rust); font-family:var(--mono); font-size:8pt}
+
+/* levels */
+.levels{display:flex; gap:6mm; margin-top:7mm}
+.level{flex:1; border-top:2px solid var(--rust); padding-top:3.5mm}
+.level .lv{font-family:var(--mono); font-size:7.2pt; letter-spacing:.14em; text-transform:uppercase; color:var(--rust)}
+.level h4{font-family:var(--display); font-weight:600; font-size:11pt; margin:1.5mm 0 1.5mm}
+.level p{font-size:8.8pt; line-height:1.55; color:var(--ink)}
+
+/* footer / cta */
+.cta{
+  margin-top:auto; border-top:1px solid var(--line); padding-top:5mm;
+  display:flex; justify-content:space-between; align-items:flex-end; gap:8mm;
+}
+.cta .urgent{font-family:var(--mono); font-size:7.6pt; letter-spacing:.14em; text-transform:uppercase; color:var(--rust); max-width:96mm; line-height:2}
+.cta .contact{font-family:var(--mono); font-size:7.6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--olive); text-align:right; line-height:2}
+.cta .contact b{color:var(--ink); font-weight:600}
+</style>
+</head>
+<body>
+
+<section class="page">
+  <img class="stamp" src="stamp.png" alt="">
+  <p class="eyebrow"><span class="dash">— — —</span>Campaign · Pregnancy &amp; Baby Brands</p>
+  <h1>Born <em>on the road</em></h1>
+
+  <p class="lead">One family, nine months, three chapters. We are Auke and Yummee,
+  travelling with Emma (6) and Elin (4) — and in April 2027 our third child is born
+  on Bali, mid-journey. We are documenting the whole arc in English and Dutch:
+  travelling pregnant, giving birth abroad, and the first months on the road with a
+  newborn. For a pregnancy or baby brand, that is not a one-off video — it is a
+  story your audience follows, with your product inside every chapter.</p>
+
+  <div class="chapter">
+    <div class="ch-l">
+      <p class="num">CHAPTER 01</p>
+      <h3>Expecting</h3>
+      <p class="when">Netherlands &amp; Thailand · now – Feb 2027</p>
+    </div>
+    <p class="ch-r">Travelling pregnant: packing, flying, long days on the move and
+    staying comfortable — your product in genuine use before the baby arrives.</p>
+  </div>
+  <div class="chapter">
+    <div class="ch-l">
+      <p class="num">CHAPTER 02</p>
+      <h3>The arrival</h3>
+      <p class="when">Bali · from March 2027</p>
+    </div>
+    <p class="ch-r">Settling in, the birth in April, the first weeks with a newborn
+    far from home — the moments every parent-to-be watches most closely.</p>
+  </div>
+  <div class="chapter">
+    <div class="ch-l">
+      <p class="num">CHAPTER 03</p>
+      <h3>Newborn nomad</h3>
+      <p class="when">Bali &amp; Vietnam · from May 2027</p>
+    </div>
+    <p class="ch-r">On the road as a family of five: feeding, carrying, sleeping and
+    moving with a newborn and two big sisters — real life, filmed as it happens.</p>
+  </div>
+
+  <div class="partner">
+    <span class="label">What a campaign partner gets</span>
+    <ul>
+      <li>Your product woven through all three chapters</li>
+      <li>12–15 fully edited vertical (9:16) videos over nine months</li>
+      <li>Lifestyle photography alongside every chapter</li>
+      <li>Native English and Dutch versions</li>
+      <li>Paid-ad usage rights included</li>
+      <li>Category exclusivity — we take on two campaign partners only</li>
+    </ul>
+  </div>
+
+  <div class="levels">
+    <div class="level">
+      <p class="lv">Level 01</p>
+      <h4>Campaign partner</h4>
+      <p>The full story, category-exclusive. Your product travels with us from the
+      first chapter to the last.</p>
+    </div>
+    <div class="level">
+      <p class="lv">Level 02</p>
+      <h4>Chapter partner</h4>
+      <p>One chapter, 4–6 videos — pick the phase that fits your product best.</p>
+    </div>
+    <div class="level">
+      <p class="lv">Level 03</p>
+      <h4>Single video</h4>
+      <p>One moment inside the story, at our standard video rate.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <p class="urgent">The story has already begun —<br>chapter one closes in December 2026.</p>
+    <p class="contact">
+      <b>hello@thenewbornnomads.com</b><br>
+      @thenewbornnomads · thenewbornnomads.com
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
