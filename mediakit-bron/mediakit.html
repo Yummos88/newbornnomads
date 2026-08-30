@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Newborn Nomads — Media Kit</title>
+<style>
+/* ================================================================
+   THE NEWBORN NOMADS — MEDIA KIT (WeasyPrint → A4 PDF)
+   Bouw:  python3 build.py
+   Assets: fonts/  stamp.png
+   ================================================================ */
+
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-400-normal.woff2);font-weight:400;font-style:normal}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-600-normal.woff2);font-weight:600;font-style:normal}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-700-normal.woff2);font-weight:700;font-style:normal}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-600-italic.woff2);font-weight:600;font-style:italic}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-700-italic.woff2);font-weight:700;font-style:italic}
+@font-face{font-family:"Karla";src:url(fonts/karla-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Karla";src:url(fonts/karla-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"Karla";src:url(fonts/karla-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:"Karla";src:url(fonts/karla-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-600-normal.woff2);font-weight:600}
+
+:root{
+  --cream:#F6F0E4; --sand:#ECE2CE; --ink:#4A4238;
+  --rust:#8C3B1B;  --rust-soft:#C77B4E;
+  --olive:#5C6644; --olive-deep:#3F4630; --line:#C9BBA0;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Karla",sans-serif;
+  --mono:"IBM Plex Mono",monospace;
+}
+
+@page{ size:A4; margin:0; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:10.5pt}
+body{font-family:var(--body);color:var(--ink);line-height:1.55;-weasy-hyphens:none}
+
+.page{
+  position:relative; width:210mm; height:297mm; overflow:hidden;
+  background:var(--cream); padding:20mm 18mm 18mm;
+  page-break-after:always;
+  display:flex; flex-direction:column;
+}
+/* content onder de kop vult de resthoogte -> geen dode ruimte onderaan */
+.flow{flex:1; display:flex; flex-direction:column; justify-content:center}
+.flow.spread{justify-content:space-between}
+.page:last-child{page-break-after:auto}
+.page.sand{background:var(--sand)}
+.page.deep{background:var(--olive-deep); color:var(--cream)}
+
+/* ---------- shared type ---------- */
+.eyebrow{
+  font-family:var(--mono); font-size:7.6pt; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--olive); margin-bottom:9mm;
+}
+.eyebrow .dash{color:var(--rust); letter-spacing:.05em; margin-right:.7em; font-weight:600}
+.deep .eyebrow{color:var(--sand)}
+.deep .eyebrow .dash{color:var(--rust-soft)}
+
+h1{font-family:var(--display); font-weight:700; font-size:34pt; line-height:1.03; letter-spacing:-.01em}
+h1 em{font-style:italic; color:var(--rust)}
+h2{font-family:var(--display); font-weight:700; font-size:23pt; line-height:1.1; letter-spacing:-.01em; margin-bottom:7mm}
+h2 em{font-style:italic; color:var(--rust)}
+.deep h2 em{color:var(--rust-soft)}
+h3{font-family:var(--display); font-weight:600; font-size:12.5pt; line-height:1.2}
+
+.lead{font-size:11pt; line-height:1.72; max-width:105mm}
+.label{
+  font-family:var(--mono); font-size:7.4pt; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--rust);
+}
+.deep .label{color:var(--rust-soft)}
+.muted{color:var(--olive)}
+.deep .muted{color:var(--sand); opacity:.85}
+
+/* ---------- cover ---------- */
+.cover h1{font-size:40pt; margin:6mm 0 8mm}
+.cover .lead{max-width:112mm; font-size:11.4pt}
+.cover .meta{
+  font-family:var(--mono); font-size:8pt; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--olive); margin-top:9mm; line-height:2.35;
+  padding-left:6mm; position:relative;
+}
+.cover .meta .pin{
+  position:absolute; left:0; width:3.4mm; height:3.4mm;
+  border-radius:50% 50% 50% 0; transform:rotate(-45deg);
+  background:var(--rust); top:9.4mm;
+}
+.photo-slot{
+  position:absolute; left:18mm; right:18mm; bottom:26mm; height:118mm;
+  border:1px dashed var(--line); background:rgba(236,226,206,.55);
+  overflow:hidden;
+}
+/* met foto: dashed rand weg, beeld vult het kader */
+.photo-slot.has-photo{border:none; background:none}
+.photo-slot img{width:100%; height:100%; object-fit:cover; display:block}
+.cover .photo-slot{background:rgba(236,226,206,.75)}
+.photo-slot .cap{
+  position:absolute; left:0; right:0; top:50%; transform:translateY(-50%);
+  text-align:center; font-family:var(--mono); font-size:7.4pt;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--line);
+}
+.stamp{
+  position:absolute; right:9mm; bottom:134mm; width:38mm; height:38mm;
+  z-index:2;
+  transform:rotate(-7deg);
+}
+.trail{position:absolute; right:14mm; bottom:12mm; width:52mm}
+
+/* ---------- fact table ---------- */
+.facts{width:100%; border-collapse:collapse; margin-top:11mm}
+.facts td{
+  font-family:var(--mono); font-size:8pt; letter-spacing:.06em;
+  padding:3.6mm 0; border-bottom:1px solid var(--line); vertical-align:baseline;
+}
+.facts td:first-child{color:var(--olive); text-transform:none}
+.facts td:last-child{text-align:right; color:var(--ink); font-weight:500}
+
+/* ---------- two-column layouts ---------- */
+.cols{display:flex; gap:12mm}
+.col-l{width:62mm; flex:none}
+.col-r{flex:1}
+
+.benefit{border-top:1px solid var(--line); padding:6.5mm 0; display:flex; gap:7mm}
+.benefit:first-of-type{border-top:none; padding-top:0}
+.benefit .bl{width:34mm; flex:none}
+.benefit .bt{flex:1; font-size:10pt; line-height:1.62}
+
+.photo-circle{
+  width:60mm; height:60mm; border-radius:50%;
+  border:1.6px solid var(--rust); position:relative; overflow:hidden;
+}
+.photo-circle.has-photo::after{display:none}
+.photo-circle img{width:100%; height:100%; object-fit:cover; display:block}
+.photo-circle::after{
+  content:""; position:absolute; inset:4mm; border-radius:50%;
+  border:1px dashed var(--line);
+}
+.photo-circle .cap{
+  position:absolute; left:0; right:0; top:50%; transform:translateY(-50%);
+  text-align:center; font-family:var(--mono); font-size:7pt;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--line);
+}
+
+.chips{margin-top:13mm}
+.chip{
+  display:inline-block; font-family:var(--mono); font-size:7.2pt;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--olive);
+  border:1px solid var(--line); border-radius:20mm;
+  padding:2.1mm 4.6mm; margin:0 1.6mm 3.4mm 0;
+}
+
+/* ---------- our work (categories as offer) ---------- */
+.cat{border-top:1px solid var(--line); padding:8.5mm 0 8mm}
+.cat:first-of-type{border-top:none; padding-top:2mm}
+.cat-head{display:flex; align-items:baseline; gap:5mm; margin-bottom:3.2mm}
+.cat-head .num{
+  font-family:var(--mono); font-size:8pt; color:var(--rust);
+  letter-spacing:.1em; font-weight:600;
+}
+.cat-desc{font-size:10.2pt; line-height:1.7; max-width:152mm; margin-bottom:5mm}
+.cat-list{list-style:none; display:flex; flex-wrap:wrap; gap:0 8mm}
+.cat-list li{
+  font-family:var(--mono); font-size:7.8pt; letter-spacing:.05em;
+  color:var(--olive); line-height:2.5; width:70mm;
+}
+.cat-list li::before{content:"→ "; color:var(--rust)}
+
+.callout{
+  margin-top:11mm; border:1px solid var(--line); border-radius:2mm;
+  padding:7.5mm 8mm; background:rgba(236,226,206,.6);
+}
+.callout .k{font-family:var(--mono); font-size:7.4pt; letter-spacing:.16em; text-transform:uppercase; color:var(--rust); display:block; margin-bottom:2.5mm}
+.callout p{font-size:10pt; line-height:1.62}
+.callout a{color:var(--ink); font-weight:600; text-decoration:none}
+
+/* ---------- services ---------- */
+.svc{display:flex; gap:9mm; margin-top:6mm}
+.svc-col{flex:1}
+.svc-col h3{margin-bottom:6mm; padding-bottom:3.5mm; border-bottom:1px solid rgba(246,240,228,.35)}
+.deep .svc-col h3{color:var(--cream)}
+.svc-col ul{list-style:none}
+.svc-col li{
+  font-size:9.4pt; line-height:1.55; padding:4mm 0 4mm 5mm;
+  position:relative; border-bottom:1px solid rgba(246,240,228,.14);
+}
+.svc-col li::before{content:"→"; position:absolute; left:0; color:var(--rust-soft)}
+.svc-note{
+  margin-top:16mm; font-family:var(--mono); font-size:7.8pt;
+  letter-spacing:.11em; text-transform:uppercase; line-height:1.95;
+  color:var(--sand); border-top:1px solid rgba(246,240,228,.3); padding-top:5mm;
+}
+
+/* ---------- road ahead ---------- */
+.flight{margin-top:10mm}
+.flight svg{width:100%; height:auto}
+.map-name{font-family:var(--mono); font-size:26px; letter-spacing:1.5px; fill:var(--ink)}
+.map-sub{font-family:var(--mono); font-size:22px; letter-spacing:1px; fill:var(--rust)}
+.map-end{font-family:var(--mono); font-size:24px; letter-spacing:1.5px; fill:var(--olive)}
+.map-note{font-family:var(--mono); font-size:18px; letter-spacing:1.2px; fill:var(--olive)}
+.roadmap-note{
+  margin-top:14mm; font-family:var(--mono); font-size:8pt;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--olive);
+}
+.roadmap-note a{color:var(--rust); font-weight:600; text-decoration:none}
+.road-body{margin-top:14mm; max-width:138mm; font-size:10.2pt; line-height:1.72}
+
+/* ---------- how it works ---------- */
+.steps{margin-top:8mm; position:relative; padding-left:16mm}
+.steps::before{
+  content:""; position:absolute; left:5.6mm; top:4mm; bottom:11mm;
+  border-left:1.6px dashed var(--line);
+}
+.step{position:relative; padding:0 0 15mm}
+.step:last-child{padding-bottom:0}
+.step .dot{
+  position:absolute; left:-13mm; top:1.2mm;
+  width:5.4mm; height:5.4mm; border-radius:50%;
+  background:var(--rust);
+}
+.step .n{
+  font-family:var(--mono); font-size:7.6pt; letter-spacing:.18em;
+  color:var(--rust); text-transform:uppercase; display:block; margin-bottom:1.4mm;
+}
+.step h3{margin-bottom:2mm}
+.step p{font-size:10pt; line-height:1.7; max-width:132mm; color:var(--ink)}
+
+/* ---------- contact ---------- */
+.contact{text-align:center; padding-top:30mm}
+.contact h2{font-size:27pt; margin-bottom:8mm}
+.contact .lead{margin:0 auto 18mm; max-width:118mm; text-align:center}
+.contact .links{margin-top:2mm}
+.contact .links a{
+  display:block; font-family:var(--mono); font-size:10pt;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink); text-decoration:none; line-height:2.9;
+}
+.contact .links a .k{color:var(--rust); margin-right:1.5em; font-size:7.4pt}
+.trail-c{display:block; width:62mm; margin:20mm auto 0}
+.wordmark{
+  position:absolute; left:0; right:0; bottom:30mm; text-align:center;
+  font-family:var(--display); font-weight:600; font-style:italic;
+  font-size:17pt; color:var(--rust);
+}
+.contact .stamp-c{
+  display:block; width:34mm; height:34mm; margin:0 auto 16mm;
+  transform:rotate(-5deg);
+}
+
+.pagenum{
+  position:absolute; right:18mm; bottom:11mm;
+  font-family:var(--mono); font-size:7pt; letter-spacing:.16em; color:var(--line);
+}
+.deep .pagenum{color:rgba(246,240,228,.4)}
+</style>
+</head>
+<body>
+
+<!-- ============================ 1 · COVER ============================ -->
+<section class="page cover">
+  <p class="eyebrow"><span class="dash">— — —</span>52.0°N, 4.5°E → Asia · Family Travel UGC</p>
+
+  <h1>The Newborn <em>Nomads</em></h1>
+
+  <p class="lead">We are a Dutch family of (soon to be) five preparing to travel
+  through Asia, creating warm, relatable and conversion-focused content for
+  hotels, travel brands and family-focused lifestyle brands.</p>
+
+  <div class="meta">
+    <span class="pin"></span>
+    Family of (soon to be) 5<br>
+    Currently in the Netherlands<br>
+    English / Dutch
+  </div>
+
+  <img class="stamp" src="stamp.png" alt="The Newborn Nomads — est. 2026">
+
+  <div class="photo-slot has-photo">
+    <img src="gezinsfoto_cover.jpg" alt="The Newborn Nomads — a Dutch family of four, soon to be five">
+  </div>
+
+  <svg class="trail" viewBox="0 -14 206 50">
+    <path d="M2,30 C50,30 110,22 160,8" fill="none" stroke="#8C3B1B"
+          stroke-width="2.2" stroke-dasharray="1 8" stroke-linecap="round"/>
+    <g transform="translate(168,2) rotate(-16)">
+      <path d="M0,9 L24,0 L9,19 L7,11 Z" fill="#8C3B1B"/>
+    </g>
+  </svg>
+</section>
+
+<!-- ======================== 2 · WHY US ======================== -->
+<section class="page sand">
+  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 01 · Why us</p>
+  <h2>A family, <em>not a studio</em></h2>
+
+<div class="flow">
+  <div class="cols">
+    <div class="col-l">
+      <div class="photo-circle has-photo"><img src="portret_vierkant.jpg" alt="The Newborn Nomads"></div>
+
+      <table class="facts">
+        <tr><td>Family</td><td>(Soon to be) 5</td></tr>
+        <tr><td>Languages</td><td>English / Dutch</td></tr>
+        <tr><td>Base</td><td>Netherlands → Asia</td></tr>
+        <tr><td>Delivery</td><td>Vertical 9:16</td></tr>
+      </table>
+    </div>
+
+    <div class="col-r">
+      <p class="lead" style="max-width:none; margin-bottom:9mm">We are Auke and Yummee,
+      travelling with Emma (6) and Elin (4) — and number three arriving in March 2027.
+      Your product gets used the way families actually use it: on the move, one-handed,
+      while the baby cries. That's exactly why it works — <strong>honest enough to be
+      believed, relatable enough to be shared.</strong></p>
+
+      <div class="benefit">
+        <div class="bl"><span class="label">Real use</span></div>
+        <div class="bt">Filmed inside real family life — travel days, hotel rooms,
+        mealtimes — not on a set.</div>
+      </div>
+      <div class="benefit">
+        <div class="bl"><span class="label">Ready to post</span></div>
+        <div class="bt">Fully edited 9:16 videos, delivered ready for your channels —
+        extra hooks, CTAs and variations available on request.</div>
+      </div>
+      <div class="benefit">
+        <div class="bl"><span class="label">One family,<br>two markets</span></div>
+        <div class="bt">Native content in English and Dutch from the same faces your
+        audience gets to know.</div>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Family friendly travel</span>
+        <span class="chip">Pregnancy, baby &amp; kids</span>
+        <span class="chip">Conscious family living</span>
+        <span class="chip">Travel essentials</span>
+        <span class="chip">Food &amp; local experience</span>
+      </div>
+    </div>
+  </div>
+  </div>
+  <span class="pagenum">02</span>
+</section>
+
+<!-- ======================== 3 · OUR WORK ======================== -->
+<section class="page">
+  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 02 · Our work</p>
+  <h2>Real family. Real travel. <em>Real content.</em></h2>
+
+<div class="flow">
+  <div class="cat">
+    <div class="cat-head">
+      <span class="num">01</span>
+      <h3>Hotels &amp; Destinations</h3>
+    </div>
+    <p class="cat-desc">Stays and places seen through a family's eyes — what the room
+    is really like with a toddler in it, what the grounds offer at 7am, whether the
+    breakfast works for kids. The content a family actually books on.</p>
+    <ul class="cat-list">
+      <li>Hotel and holiday park experiences</li>
+      <li>Room, grounds and facility tours</li>
+      <li>Destination and area guides</li>
+      <li>Arrival-to-checkout narratives</li>
+    </ul>
+  </div>
+
+  <div class="cat">
+    <div class="cat-head">
+      <span class="num">02</span>
+      <h3>Family Travel &amp; Experiences</h3>
+    </div>
+    <p class="cat-desc">Life between the destinations: the travel days, the meals, the
+    attractions, the small logistics that decide whether a trip works. Filmed as it
+    happens, not staged afterwards.</p>
+    <ul class="cat-list">
+      <li>Travel days and transit routines</li>
+      <li>Food and local experiences</li>
+      <li>Attractions and days out with kids</li>
+      <li>On-the-road family POV</li>
+    </ul>
+  </div>
+
+  <div class="cat">
+    <div class="cat-head">
+      <span class="num">03</span>
+      <h3>Products &amp; Lifestyle</h3>
+    </div>
+    <p class="cat-desc">Products in genuine use — packed, carried, folded into a car
+    boot, still working after three years. Honest enough to be believed, structured
+    enough to convert.</p>
+    <ul class="cat-list">
+      <li>Real-use demonstrations</li>
+      <li>Long-term reviews</li>
+      <li>Unboxings and first impressions</li>
+      <li>Problem-solution and ad-style edits</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <span class="k">See the films</span>
+    <p>Our full video portfolio lives online and is updated as we travel — every
+    film, by category, in full.<br>
+    <a href="https://thenewbornnomads.com">thenewbornnomads.com</a></p>
+  </div>
+
+  </div>
+  <span class="pagenum">03</span>
+</section>
+
+<!-- ======================== 4 · SERVICES ======================== -->
+<section class="page deep">
+  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 03 · Our services</p>
+  <h2>What we <em>deliver</em></h2>
+
+<div class="flow">
+  <div class="svc">
+    <div class="svc-col">
+      <h3>What we create</h3>
+      <ul>
+        <li>Fully edited short-form UGC videos</li>
+        <li>Voice-over and talking-to-camera videos</li>
+        <li>Unboxings, testimonials and product demonstrations</li>
+        <li>Problem-solution and ad-style content</li>
+        <li>Hotel, destination and experience showcases</li>
+        <li>Lifestyle and product photography</li>
+        <li>Content creation in English and Dutch</li>
+      </ul>
+    </div>
+    <div class="svc-col">
+      <h3>Available add-ons</h3>
+      <ul>
+        <li>Raw footage and additional <span style="white-space:nowrap">B-roll</span></li>
+        <li>Additional hooks, CTAs and video variations</li>
+        <li>Posting on our Instagram account</li>
+        <li>Partnership posts and Stories</li>
+        <li>Express delivery</li>
+      </ul>
+    </div>
+    <div class="svc-col">
+      <h3>Usage &amp; licensing</h3>
+      <ul>
+        <li>Paid-ad usage rights</li>
+        <li>Extended usage rights</li>
+        <li>Creator licensing &amp; partnership ads</li>
+        <li>Category exclusivity</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="svc-note">Every collaboration is tailored — tell us what you need<br>
+  and we'll send a proposal within two working days.</p>
+  </div>
+  <span class="pagenum">04</span>
+</section>
+
+<!-- ======================== 5 · ROAD AHEAD ======================== -->
+<section class="page sand">
+  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 04 · The road ahead</p>
+  <h2>The <em>road ahead</em></h2>
+
+<div class="flow">
+  <div class="flight">
+    <svg viewBox="0 30 1200 600" xmlns="http://www.w3.org/2000/svg">
+      <!-- papieren vliegtuigje aan het begin -->
+      <g transform="translate(10,470) rotate(-34)">
+        <path d="M0,20 L62,0 L23,44 L18,25 Z" fill="#8C3B1B"/>
+      </g>
+
+      <!-- gestippelde vluchtroute -->
+      <path d="M70,506 C180,368 268,318 366,296 C476,272 566,382 664,420
+               C770,462 866,300 966,222 C1036,168 1094,146 1146,132"
+        fill="none" stroke="#8C3B1B" stroke-width="3.4"
+        stroke-dasharray="3 15" stroke-linecap="round"/>
+
+      <!-- start -->
+      <circle cx="70" cy="506" r="10" fill="#5C6644"/>
+      <text class="map-name" x="70" y="560" text-anchor="start">NETHERLANDS</text>
+      <text class="map-sub"  x="70" y="594" text-anchor="start">NOW</text>
+
+      <!-- bestemming 1 (label boven) -->
+      <circle cx="366" cy="296" r="10" fill="#5C6644"/>
+      <text class="map-name" x="366" y="240" text-anchor="middle">THAILAND</text>
+      <text class="map-sub"  x="366" y="274" text-anchor="middle">JAN–FEB 2027</text>
+
+      <!-- bestemming 2 (label onder) — Bali: hier wordt nummer drie geboren -->
+      <circle cx="664" cy="420" r="10" fill="#5C6644"/>
+      <text class="map-name" x="664" y="474" text-anchor="middle">BALI</text>
+      <text class="map-sub"  x="664" y="508" text-anchor="middle">MARCH 2027</text>
+      <text class="map-note" x="664" y="542" text-anchor="middle">WHERE NUMBER THREE ARRIVES</text>
+
+      <!-- bestemming 3 (label boven) -->
+      <circle cx="966" cy="222" r="10" fill="#5C6644"/>
+      <text class="map-name" x="944" y="158" text-anchor="end">VIETNAM</text>
+      <text class="map-sub"  x="944" y="192" text-anchor="end">Q3 2027</text>
+
+      <!-- open einde -->
+      <circle cx="1146" cy="132" r="10" fill="none" stroke="#5C6644" stroke-width="3.4"/>
+      <text class="map-end" x="1146" y="80" text-anchor="end">ONWARDS</text>
+    </svg>
+  </div>
+
+  <p class="roadmap-note">Hotel or brand along this route?
+    <a href="https://thenewbornnomads.com#contact">Get in touch before we arrive →</a>
+  </p>
+
+  <p class="road-body">We plan our route months ahead, which means there is room to
+  build a collaboration around a place before we get there — rather than fitting one
+  in afterwards. If you are on this map, the earliest conversations are the ones we
+  can shape the most around your goals.</p>
+
+  </div>
+  <span class="pagenum">05</span>
+</section>
+
+<!-- ======================== 6 · HOW IT WORKS ======================== -->
+<section class="page">
+  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 05 · How it works</p>
+  <h2>From hello <em>to delivery</em></h2>
+
+<div class="flow">
+  <div class="steps">
+    <div class="step">
+      <span class="dot"></span>
+      <span class="n">01 — Say hello</span>
+      <h3>Tell us what you're looking for</h3>
+      <p>A short note is enough: your product, hotel or campaign, and what you want
+      the content to do.</p>
+    </div>
+    <div class="step">
+      <span class="dot"></span>
+      <span class="n">02 — Proposal</span>
+      <h3>Tailored proposal within two working days</h3>
+      <p>Concept, deliverables, timeline and usage rights — matched to your goal,
+      no standard packages.</p>
+    </div>
+    <div class="step">
+      <span class="dot"></span>
+      <span class="n">03 — We create</span>
+      <h3>Filmed inside real family life</h3>
+      <p>At home or on location along our route — natural use, honest reactions,
+      no staged sets.</p>
+    </div>
+    <div class="step">
+      <span class="dot"></span>
+      <span class="n">04 — Delivery</span>
+      <h3>Ready to run</h3>
+      <p>Edited vertical videos with the agreed hooks, variations and rights —
+      straight into your channels.</p>
+    </div>
+  </div>
+  </div>
+  <span class="pagenum">06</span>
+</section>
+
+<!-- ======================== 7 · CONTACT ======================== -->
+<section class="page sand contact">
+  <p class="eyebrow" style="text-align:center"><span class="dash">— — —</span>Waypoint 06 · Contact</p>
+
+  <h2>Let's make <em>something</em></h2>
+  <p class="lead">Send us a short note about what you're looking for — you'll get our
+  availability back within two working days.</p>
+
+  <img class="stamp-c" src="stamp.png" alt="The Newborn Nomads — est. 2026">
+
+  <div class="links">
+    <a href="mailto:hello@thenewbornnomads.com"><span class="k">MAIL</span>hello@thenewbornnomads.com</a>
+    <a href="https://instagram.com/thenewbornnomads"><span class="k">INSTA</span>@thenewbornnomads</a>
+    <a href="https://thenewbornnomads.com"><span class="k">WEB</span>thenewbornnomads.com</a>
+  </div>
+
+  <svg class="trail-c" viewBox="0 -14 246 56">
+    <path d="M4,34 C70,34 150,26 200,10" fill="none" stroke="#8C3B1B"
+          stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+    <g transform="translate(206,3) rotate(-18)">
+      <path d="M0,10 L26,0 L10,20 L8,12 Z" fill="#8C3B1B"/>
+    </g>
+  </svg>
+
+  <div class="wordmark">The Newborn Nomads</div>
+</section>
+
+</body>
+</html>
