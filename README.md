@@ -8,14 +8,21 @@ wat hier staat wordt direct gedeployed.
 
 ## "CURRENTLY IN" bijwerken
 
-De locatietekst staat in `index.html` rond regel 302, in het blok
-`<div class="hero-meta">`:
+De locatietekst staat op **twee plekken** in het blok `<div class="hero-meta">`:
 
-```html
-<span class="pin">📍</span>CURRENTLY IN <b>Alphen aan den Rijn</b>
-```
+- `index.html` (Engels): `CURRENTLY IN <b>The Netherlands</b>`
+- `nl/index.html` (Nederlands): `NU IN <b>Nederland</b>`
 
-Pas de plaatsnaam tussen `<b>…</b>` aan en push naar `main`; Netlify deployt automatisch.
+Pas de plaatsnaam tussen `<b>…</b>` op beide plekken aan en push naar `main`;
+Netlify deployt automatisch.
+
+## Nederlandse versie
+
+`nl/index.html` is de Nederlandse vertaling van de site (bereikbaar via `/nl/`,
+schakelaar rechtsboven). Zelfde lay-out, vertaalde teksten, plus een extra blok
+"Nederlands gesproken" met een leeg telefoonframe — vervang de placeholder daar
+door een Vimeo-embed zodra de eerste Nederlandse video klaar is.
+Inhoudelijke wijzigingen aan de site altijd in **beide** bestanden doorvoeren.
 
 ## Media kit
 
