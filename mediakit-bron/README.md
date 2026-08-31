@@ -16,9 +16,13 @@ Pagina's:
   2 Waypoint 01 · Why us
   3 Waypoint 02 · Our work   <- categorieen als aanbod, geen stills
   4 Waypoint 03 · Our services
-  5 Waypoint 04 · The road ahead
-  6 Waypoint 05 · How it works
-  7 Waypoint 06 · Contact
+  5 Waypoint 04 · Rates      <- prijslijst; bedragen staan in .rates
+  6 Waypoint 05 · The road ahead
+  7 Waypoint 06 · How it works
+  8 Waypoint 07 · Contact
+
+Let op: pagina's toevoegen betekent ook de waypoint-nummers en de
+.pagenum-labels van alle volgende pagina's ophogen.
 
 Let op:
 - De kit toont geen losse films. Nieuwe video's zetten op de site

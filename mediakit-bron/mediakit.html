@@ -193,6 +193,45 @@ h3{font-family:var(--display); font-weight:600; font-size:12.5pt; line-height:1.
   color:var(--sand); border-top:1px solid rgba(246,240,228,.3); padding-top:5mm;
 }
 
+/* ---------- rates ---------- */
+.rates{margin-top:2mm}
+.rate-group{margin-bottom:3.5mm}
+.gl{
+  font-family:var(--mono); font-size:7.4pt; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--rust); display:block;
+  border-bottom:1px solid var(--line); padding-bottom:2.2mm; margin-bottom:1mm;
+}
+.rate{
+  display:flex; align-items:baseline; gap:5mm;
+  padding:2.1mm 0; border-bottom:1px solid rgba(201,187,160,.4);
+}
+.rate:last-child{border-bottom:none}
+.rate .rn{flex:1}
+.rate .rn b{font-family:var(--display); font-weight:600; font-size:10.5pt; display:block}
+.rate .rn span{font-size:8.8pt; color:var(--olive); line-height:1.5}
+.rate .rp{
+  font-family:var(--mono); font-size:10pt; font-weight:500;
+  color:var(--ink); white-space:nowrap; text-align:right;
+}
+.rate-cols{display:flex; gap:9mm; margin-top:1mm}
+.rate-cols .rc{flex:1}
+.rate-cols ul{list-style:none}
+.rate-cols li{
+  display:flex; justify-content:space-between; gap:4mm;
+  font-size:8.6pt; line-height:1.45; padding:1.4mm 0;
+  border-bottom:1px solid rgba(201,187,160,.3);
+}
+.rate-cols li:last-child{border-bottom:none}
+.rate-cols li b{
+  font-family:var(--mono); font-size:8.2pt; font-weight:500;
+  white-space:nowrap; color:var(--ink);
+}
+.rate-note{
+  margin-top:auto; border-top:1px solid var(--line); padding-top:4mm;
+  font-family:var(--mono); font-size:7.4pt; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--olive); line-height:1.95;
+}
+
 /* ---------- road ahead ---------- */
 .flight{margin-top:10mm}
 .flight svg{width:100%; height:auto}
@@ -455,9 +494,89 @@ h3{font-family:var(--display); font-weight:600; font-size:12.5pt; line-height:1.
   <span class="pagenum">04</span>
 </section>
 
-<!-- ======================== 5 · ROAD AHEAD ======================== -->
+<!-- ======================== 5 · RATES ======================== -->
+<section class="page">
+  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 04 · Rates</p>
+  <h2>What it <em>costs</em></h2>
+
+<div class="flow" style="justify-content:flex-start">
+  <p class="lead" style="max-width:158mm; margin-bottom:4mm">These are our standard rates,
+  so you know where you stand before you write. Most collaborations end up a mix — a few
+  videos, some photography, and only the rights you actually need.</p>
+
+  <div class="rates">
+    <div class="rate-group">
+      <span class="gl">Video</span>
+      <div class="rate">
+        <div class="rn"><b>One video</b><span>Fully edited, vertical 9:16, one revision round</span></div>
+        <div class="rp">€ 300</div>
+      </div>
+      <div class="rate">
+        <div class="rn"><b>Three videos</b><span>Filmed together, different angles and hooks</span></div>
+        <div class="rp">€ 795</div>
+      </div>
+      <div class="rate">
+        <div class="rn"><b>Five videos</b><span>A full content set to test and rotate</span></div>
+        <div class="rp">€ 1.250</div>
+      </div>
+    </div>
+
+    <div class="rate-group">
+      <span class="gl">Photography</span>
+      <div class="rate">
+        <div class="rn"><b>Photo set</b><span>Ten edited lifestyle or product images</span></div>
+        <div class="rp">€ 250</div>
+      </div>
+      <div class="rate">
+        <div class="rn"><b>Added to a video package</b><span>Same shoot, same day</span></div>
+        <div class="rp">€ 150</div>
+      </div>
+    </div>
+
+    <div class="rate-group">
+      <span class="gl">Stays &amp; campaigns</span>
+      <div class="rate">
+        <div class="rn"><b>Hotel or holiday park</b><span>Three videos and fifteen photos of your place</span></div>
+        <div class="rp">stay + from € 450</div>
+      </div>
+      <div class="rate">
+        <div class="rn"><b>Born on the Road</b><span>Nine months, three chapters, category exclusive</span></div>
+        <div class="rp">from € 3.500</div>
+      </div>
+    </div>
+
+    <div class="rate-cols">
+      <div class="rc">
+        <span class="gl">Add-ons</span>
+        <ul>
+          <li>Extra hook or CTA variant <b>€ 50</b></li>
+          <li>Second language version <b>€ 75</b></li>
+          <li>Raw footage and B-roll <b>+30%</b></li>
+          <li>Express delivery <b>+25%</b></li>
+          <li>Posting on our Instagram <b>€ 150</b></li>
+        </ul>
+      </div>
+      <div class="rc">
+        <span class="gl">Usage rights</span>
+        <ul>
+          <li>Organic, your channels, 12 months <b>included</b></li>
+          <li>Paid advertising, 6 months <b>+50%</b></li>
+          <li>Unlimited and perpetual <b>+100%</b></li>
+          <li>Category exclusivity <b>from € 250 p/m</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="rate-note">All prices exclude VAT · Every collaboration is tailored — tell us
+  what you need<br>and we'll send a proposal within two working days.</p>
+  </div>
+  <span class="pagenum">05</span>
+</section>
+
+<!-- ======================== 6 · ROAD AHEAD ======================== -->
 <section class="page sand">
-  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 04 · The road ahead</p>
+  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 05 · The road ahead</p>
   <h2>The <em>road ahead</em></h2>
 
 <div class="flow">
@@ -512,12 +631,12 @@ h3{font-family:var(--display); font-weight:600; font-size:12.5pt; line-height:1.
   per destination, so the calendar closes early — for Thailand, before December 2026.</p>
 
   </div>
-  <span class="pagenum">05</span>
+  <span class="pagenum">06</span>
 </section>
 
 <!-- ======================== 6 · HOW IT WORKS ======================== -->
 <section class="page">
-  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 05 · How it works</p>
+  <p class="eyebrow"><span class="dash">— — —</span>Waypoint 06 · How it works</p>
   <h2>From hello <em>to delivery</em></h2>
 
 <div class="flow">
@@ -552,12 +671,12 @@ h3{font-family:var(--display); font-weight:600; font-size:12.5pt; line-height:1.
     </div>
   </div>
   </div>
-  <span class="pagenum">06</span>
+  <span class="pagenum">07</span>
 </section>
 
 <!-- ======================== 7 · CONTACT ======================== -->
 <section class="page sand contact">
-  <p class="eyebrow" style="text-align:center"><span class="dash">— — —</span>Waypoint 06 · Contact</p>
+  <p class="eyebrow" style="text-align:center"><span class="dash">— — —</span>Waypoint 07 · Contact</p>
 
   <h2>Let's make <em>something</em></h2>
   <p class="lead">Send us a short note about what you're looking for — you'll get our
