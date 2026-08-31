@@ -1,10 +1,14 @@
 # newbornnomads
 
-Bron van [thenewbornnomads.com](https://thenewbornnomads.com), gehost op Netlify
-(project `whimsical-platypus-ef39e0`).
+Bron van [thenewbornnomads.com](https://thenewbornnomads.com), gehost op **GitHub Pages**
+(vanaf branch `main`, map `/`).
 
-Statische site: één `index.html` plus twee afbeeldingen. Er is **geen buildstap** —
-wat hier staat wordt direct gedeployed.
+Statische site: `index.html`, de Nederlandse versie in `nl/`, twee foto's en de PDF's.
+Er is **geen buildstap** — wat hier staat wordt direct gedeployed. Elke push naar `main`
+zet de site binnen ongeveer een minuut live.
+
+`CNAME` bevat het domein en `.nojekyll` schakelt Jekyll-verwerking uit; die twee
+bestanden niet verwijderen.
 
 ## "CURRENTLY IN" bijwerken
 
@@ -36,3 +40,15 @@ chrome --headless=new --no-pdf-header-footer --print-to-pdf=TheNewbornNomads-Med
 ```
 
 Gedateerde PDF-archieven (`TheNewbornNomads-MediaKit-*.pdf`) blijven buiten git.
+
+## DNS
+
+Het domein staat bij Hostinger. De site wijst naar GitHub Pages:
+
+| Type  | Naam | Waarde |
+|-------|------|--------|
+| A     | @    | 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 |
+| CNAME | www  | yummos88.github.io |
+
+De MX- en TXT-records van het domein horen bij Google-mail (`smtp.google.com` en het
+SPF-record) — die **nooit** aanpassen bij een hostingwissel, anders stopt de e-mail.
