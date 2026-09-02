@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Newborn Nomads</title>
+<meta name="description" content="UGC portfolio, Vertrekklaar and Yummee Puyt — all in one place.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://thenewbornnomads.com/links/">
+
+<!-- ============================================================
+     CONFIG
+     1. Fonts: plak hieronder dezelfde <link> die op je portfolio staat.
+     2. Kleuren: staan in :root hieronder.
+     3. Links: onderaan in de <main>, drie .waypoint blokken.
+     Let op: newborn-nomads-stamp.png moet in dezelfde map staan.
+     ============================================================ -->
+
+<!-- Zet hier de fontlink van thenewbornnomads.com, bijv.:
+<link href="https://fonts.googleapis.com/css2?family=...&display=swap" rel="stylesheet">
+-->
+
+<style>
+:root{
+  --paper:      #F5EFE4;   /* achtergrond crème */
+  --ink:        #3B342C;   /* zachte tekstkleur, bewust niet zwart */
+  --ink-soft:   #7A6E5F;   /* subtekst, coördinaten */
+  --rust:       #8C3B1A;   /* exact de kleur uit het stempellogo */
+  --rust-deep:  #6E2D13;   /* dieper, voor hover */
+  --rule:       #C4B29A;   /* route en kompaslijnen */
+
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  --max: 30rem;
+  --gutter: 3.5rem;        /* breedte van de routekolom links */
+  --line-x: 1.5rem;        /* midden van de route binnen die kolom */
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  padding:3rem 1.25rem 3.5rem;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:1rem;
+  line-height:1.55;
+  display:flex;
+  justify-content:center;
+}
+.sheet{width:100%;max-width:var(--max)}
+
+/* ---------- kop ---------- */
+.masthead{text-align:center;margin-bottom:2.5rem}
+.stamp{width:140px;height:auto;display:block;margin:0 auto 1.1rem}
+.wordmark{
+  font-family:var(--font-display);
+  font-size:1.9rem;
+  line-height:1.15;
+  font-weight:400;
+  margin:0 0 .6rem;
+}
+.bio{margin:0 auto;max-width:24rem;font-size:.9375rem;color:var(--ink-soft)}
+.coords{margin:.8rem 0 0;font-size:.75rem;letter-spacing:.06em;color:var(--ink-soft)}
+
+/* ---------- de route ---------- */
+.route{position:relative;padding-left:var(--gutter);margin:0}
+
+/* SVG-route: getekend door het script */
+.route-line{
+  position:absolute;
+  left:0;top:0;
+  width:var(--gutter);
+  overflow:visible;
+  pointer-events:none;
+}
+/* terugval als JavaScript uit staat */
+.route:not(.is-live)::before{
+  content:"";
+  position:absolute;
+  left:var(--line-x);top:.5rem;bottom:1rem;
+  border-left:1px solid var(--rule);
+}
+
+/* ---------- bestemming ---------- */
+.waypoint{position:relative;margin-bottom:2rem}
+.waypoint:last-child{margin-bottom:0}
+
+.compass{
+  position:absolute;
+  left:calc(var(--line-x) - var(--gutter) - 13px);
+  top:1rem;
+  width:26px;height:26px;
+  color:var(--rule);
+}
+
+.stop-btn{
+  display:block;
+  background:var(--rust);
+  color:var(--paper);
+  font-family:var(--font-display);
+  font-size:1.1875rem;
+  line-height:1.3;
+  text-align:center;
+  text-decoration:none;
+  padding:.95rem 1.15rem;
+  border-radius:2px;
+  transition:background-color .18s ease, transform .18s ease;
+}
+.stop-btn:hover,.stop-btn:focus-visible{background:var(--rust-deep);transform:translateY(-1px)}
+.stop-btn:focus-visible{outline:2px solid var(--rust-deep);outline-offset:3px}
+
+.stop-sub{margin:.6rem 0 0;font-size:.875rem;text-align:center;color:var(--ink-soft)}
+.stop-dest{display:block;margin-top:.3rem;font-size:.75rem;letter-spacing:.05em;color:var(--ink-soft)}
+
+/* ---------- voet ---------- */
+.footer{
+  margin-top:2.75rem;padding-top:1.5rem;
+  border-top:1px solid var(--rule);
+  text-align:center;font-size:.8125rem;color:var(--ink-soft);
+}
+.footer a{color:var(--rust);text-decoration:none;border-bottom:1px solid transparent}
+.footer a:hover,.footer a:focus-visible{border-bottom-color:var(--rust)}
+.footer a:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+
+@media (prefers-reduced-motion:reduce){
+  .stop-btn{transition:none}
+  .stop-btn:hover,.stop-btn:focus-visible{transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- kompasje: één keer gedefinieerd, drie keer gebruikt -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="compass" viewBox="0 0 26 26">
+    <circle cx="13" cy="13" r="10" fill="var(--paper)" stroke="currentColor" stroke-width="1"/>
+    <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
+      <path d="M13 3v2.4M13 20.6V23M3 13h2.4M20.6 13H23"/>
+    </g>
+    <path d="M13 5.6 L15.4 13 L13 13 Z" fill="var(--rust)"/>
+    <path d="M13 5.6 L10.6 13 L13 13 Z" fill="var(--rust)" opacity=".5"/>
+    <path d="M13 20.4 L15.4 13 L13 13 Z" fill="currentColor" opacity=".55"/>
+    <path d="M13 20.4 L10.6 13 L13 13 Z" fill="currentColor" opacity=".3"/>
+    <circle cx="13" cy="13" r="1.1" fill="var(--rust)"/>
+  </symbol>
+</svg>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <img class="stamp" src="newborn-nomads-stamp.png" width="400" height="427"
+         alt="The Newborn Nomads, est. 2026">
+    <h1 class="wordmark">The Newborn Nomads</h1>
+    <!-- Na het weekend terugzetten naar: A Dutch family of (soon to be) five, preparing to travel through Asia. -->
+    <p class="bio">A Dutch family of four, preparing to travel through Asia.</p>
+    <p class="coords">52.1326° N, 4.6516° E — the Netherlands, for now</p>
+  </header>
+
+  <main class="route" id="route">
+    <svg class="route-line" id="routeLine" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path id="routePath" fill="none" stroke="var(--rule)" stroke-width="1.4"
+            stroke-linecap="round" stroke-dasharray="5 8"/>
+      <g id="plane" fill="var(--rust)">
+        <path d="M12 0 L-11 -8 L-3 0 Z"/>
+        <path d="M12 0 L-3 0 L-11 8 Z" opacity=".55"/>
+      </g>
+    </svg>
+
+    <!-- ============================================================
+         DE DRIE BESTEMMINGEN — volgorde is bewust: portfolio eerst.
+         ============================================================ -->
+
+    <div class="waypoint">
+      <svg class="compass" viewBox="0 0 26 26" aria-hidden="true"><use href="#compass"/></svg>
+      <a class="stop-btn" href="https://thenewbornnomads.com/">Work with us</a>
+      <p class="stop-sub">
+        Our UGC portfolio: hotels, family travel and products. Twenty-plus films you can watch before you write.
+        <span class="stop-dest">thenewbornnomads.com</span>
+      </p>
+    </div>
+
+    <div class="waypoint">
+      <svg class="compass" viewBox="0 0 26 26" aria-hidden="true"><use href="#compass"/></svg>
+      <a class="stop-btn" href="https://vertrekklaar.nl/">Vertrekklaar</a>
+      <p class="stop-sub">
+        The emigration platform Auke built after an agency quoted him €9,000. Dozens of countries, step by step. Dutch language.
+        <span class="stop-dest">vertrekklaar.nl</span>
+      </p>
+    </div>
+
+    <div class="waypoint">
+      <svg class="compass" viewBox="0 0 26 26" aria-hidden="true"><use href="#compass"/></svg>
+      <a class="stop-btn" href="https://yummeepuyt.com/">Yummee Puyt</a>
+      <p class="stop-sub">
+        Losing weight without going hungry — the guide and coaching from Auke's wife, an orthomolecular therapist.
+        <span class="stop-dest">yummeepuyt.com</span>
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="https://instagram.com/thenewbornnomads">@thenewbornnomads</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:hello@thenewbornnomads.com">hello@thenewbornnomads.com</a>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var route = document.getElementById('route');
+  var svg   = document.getElementById('routeLine');
+  var path  = document.getElementById('routePath');
+  var plane = document.getElementById('plane');
+  var stops = [].slice.call(route.querySelectorAll('.waypoint'));
+  if (!route || !path.getPointAtLength) return;
+
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var gutter = parseFloat(getComputedStyle(route).paddingLeft);   // breedte routekolom
+  var lineX  = gutter * (1.5 / 3.5);                              // midden van de route
+  var total  = 0;
+
+  route.classList.add('is-live');
+
+  // Zoekt de x op de route bij een gegeven y (de route buigt licht).
+  function xAt(y) {
+    var lo = 0, hi = total, p;
+    for (var i = 0; i < 24; i++) {
+      var mid = (lo + hi) / 2;
+      p = path.getPointAtLength(mid);
+      if (p.y < y) { lo = mid; } else { hi = mid; }
+    }
+    return path.getPointAtLength((lo + hi) / 2).x;
+  }
+
+  function draw() {
+    var h = route.offsetHeight;
+    svg.setAttribute('viewBox', '0 0 ' + gutter + ' ' + h);
+    svg.setAttribute('width', gutter);
+    svg.setAttribute('height', h);
+
+    // lichte S-bocht, zoals een vluchtlijn op een kaart
+    var b = Math.min(9, gutter * 0.26);
+    path.setAttribute('d',
+      'M ' + lineX + ' 4' +
+      ' C ' + (lineX - b) + ' ' + (h * 0.32) +
+      ', ' + (lineX + b) + ' ' + (h * 0.68) +
+      ', ' + lineX + ' ' + (h - 4));
+    total = path.getTotalLength();
+
+    // kompasjes exact op de lijn zetten
+    stops.forEach(function (stop, i) {
+      var c = stop.querySelector('.compass');
+      var y = stop.offsetTop + stop.querySelector('.stop-btn').offsetHeight / 2;
+      c.style.top  = (y - stop.offsetTop - 13) + 'px';
+      c.style.left = (xAt(y) - gutter - 13) + 'px';
+      c.style.transform = 'rotate(' + [-14, 9, -6][i % 3] + 'deg)';
+    });
+
+    move(progress);
+  }
+
+  // Zet het vliegtuigje op een punt van de route (0 = start, 1 = eind).
+  var progress = 0;
+  function move(t) {
+    progress = Math.max(0, Math.min(1, t));
+    var d = total * progress;
+    var p = path.getPointAtLength(d);
+    var q = path.getPointAtLength(Math.min(total, d + 1));
+    var a = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI;
+    plane.setAttribute('transform',
+      'translate(' + p.x + ',' + p.y + ') rotate(' + a + ') scale(.8)');
+  }
+
+  function onScroll() {
+    var box = route.getBoundingClientRect();
+    var span = box.height + window.innerHeight * 0.5;
+    move((window.innerHeight * 0.75 - box.top) / span);
+  }
+
+  function start() {
+    draw();
+    if (still) { move(0); return; }
+
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight > 40;
+    if (scrollable) {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    } else {
+      // past de pagina in beeld? Dan één keer overvliegen bij het laden.
+      var t0 = null, dur = 1600;
+      requestAnimationFrame(function step(ts) {
+        if (t0 === null) t0 = ts;
+        var k = Math.min(1, (ts - t0) / dur);
+        move(k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2);
+        if (k < 1) requestAnimationFrame(step);
+      });
+    }
+  }
+
+  window.addEventListener('resize', draw);
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
+})();
+</script>
+</body>
+</html>
