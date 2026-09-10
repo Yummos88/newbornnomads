@@ -30,11 +30,11 @@
   --rule:       #C4B29A;   /* route en kompaslijnen */
 
   --font-display: Georgia, 'Times New Roman', serif;
-  --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 
   --max: 30rem;
-  --gutter: 3.5rem;        /* breedte van de routekolom links */
-  --line-x: 1.5rem;        /* midden van de route binnen die kolom */
+  --gutter: 3.5rem;   /* breedte van de routekolom links */
+  --line-x: 1.5rem;   /* midden van de route binnen die kolom */
 }
 
 *{box-sizing:border-box}
@@ -154,8 +154,7 @@ body{
     <img class="stamp" src="newborn-nomads-stamp.png" width="400" height="427"
          alt="The Newborn Nomads, est. 2026">
     <h1 class="wordmark">The Newborn Nomads</h1>
-    <!-- Na het weekend terugzetten naar: A Dutch family of (soon to be) five, preparing to travel through Asia. -->
-    <p class="bio">A Dutch family of four, preparing to travel through Asia.</p>
+    <p class="bio">A Dutch family of (soon to be) five, preparing to travel through Asia.</p>
     <p class="coords">52.1326° N, 4.6516° E — the Netherlands, for now</p>
   </header>
 
@@ -177,7 +176,7 @@ body{
       <svg class="compass" viewBox="0 0 26 26" aria-hidden="true"><use href="#compass"/></svg>
       <a class="stop-btn" href="https://thenewbornnomads.com/">Work with us</a>
       <p class="stop-sub">
-        Our UGC portfolio: hotels, family travel and products. Twenty-plus films you can watch before you write.
+        UGC portfolio
         <span class="stop-dest">thenewbornnomads.com</span>
       </p>
     </div>
@@ -186,7 +185,7 @@ body{
       <svg class="compass" viewBox="0 0 26 26" aria-hidden="true"><use href="#compass"/></svg>
       <a class="stop-btn" href="https://vertrekklaar.nl/">Vertrekklaar</a>
       <p class="stop-sub">
-        The emigration platform Auke built after an agency quoted him €9,000. Dozens of countries, step by step. Dutch language.
+        Wij helpen je emigreren. Van idee, tot aankomst.
         <span class="stop-dest">vertrekklaar.nl</span>
       </p>
     </div>
@@ -195,7 +194,7 @@ body{
       <svg class="compass" viewBox="0 0 26 26" aria-hidden="true"><use href="#compass"/></svg>
       <a class="stop-btn" href="https://yummeepuyt.com/">Yummee Puyt</a>
       <p class="stop-sub">
-        Losing weight without going hungry — the guide and coaching from Auke's wife, an orthomolecular therapist.
+        Ik help jou afvallen zonder honger, zonder strijd en zonder calorieën tellen.
         <span class="stop-dest">yummeepuyt.com</span>
       </p>
     </div>
@@ -211,16 +210,16 @@ body{
 
 <script>
 (function () {
-  var route = document.getElementById('route');
-  var svg   = document.getElementById('routeLine');
-  var path  = document.getElementById('routePath');
-  var plane = document.getElementById('plane');
-  var stops = [].slice.call(route.querySelectorAll('.waypoint'));
+  var route  = document.getElementById('route');
+  var svg    = document.getElementById('routeLine');
+  var path   = document.getElementById('routePath');
+  var plane  = document.getElementById('plane');
+  var stops  = [].slice.call(route.querySelectorAll('.waypoint'));
   if (!route || !path.getPointAtLength) return;
 
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var gutter = parseFloat(getComputedStyle(route).paddingLeft);   // breedte routekolom
-  var lineX  = gutter * (1.5 / 3.5);                              // midden van de route
+  var still  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var gutter = parseFloat(getComputedStyle(route).paddingLeft); // breedte routekolom
+  var lineX  = gutter * (1.5 / 3.5);                           // midden van de route
   var total  = 0;
 
   route.classList.add('is-live');
@@ -247,8 +246,8 @@ body{
     path.setAttribute('d',
       'M ' + lineX + ' 4' +
       ' C ' + (lineX - b) + ' ' + (h * 0.32) +
-      ', ' + (lineX + b) + ' ' + (h * 0.68) +
-      ', ' + lineX + ' ' + (h - 4));
+      ', '  + (lineX + b) + ' ' + (h * 0.68) +
+      ', '  + lineX       + ' ' + (h - 4));
     total = path.getTotalLength();
 
     // kompasjes exact op de lijn zetten
@@ -276,7 +275,7 @@ body{
   }
 
   function onScroll() {
-    var box = route.getBoundingClientRect();
+    var box  = route.getBoundingClientRect();
     var span = box.height + window.innerHeight * 0.5;
     move((window.innerHeight * 0.75 - box.top) / span);
   }
