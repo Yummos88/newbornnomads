@@ -65,6 +65,24 @@ body{
 .bio{margin:0 auto;max-width:24rem;font-size:.9375rem;color:var(--ink-soft)}
 .coords{margin:.8rem 0 0;font-size:.75rem;letter-spacing:.06em;color:var(--ink-soft)}
 
+/* ---------- socials ---------- */
+.socials{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;
+  margin:1.4rem 0 0;padding:0;list-style:none;
+}
+.social-btn{
+  display:flex;align-items:center;justify-content:center;gap:.45rem;
+  padding:.6rem .5rem;
+  border:1px solid var(--rust);border-radius:2px;
+  color:var(--rust);text-decoration:none;
+  font-size:.875rem;line-height:1;
+  transition:background-color .18s ease, color .18s ease, transform .18s ease;
+}
+.social-btn svg{width:18px;height:18px;flex:none}
+.social-btn:hover,.social-btn:focus-visible{background:var(--rust);color:var(--paper);transform:translateY(-1px)}
+.social-btn:focus-visible{outline:2px solid var(--rust-deep);outline-offset:3px}
+@media (max-width:22rem){.social-btn span{display:none}.social-btn svg{width:20px;height:20px}}
+
 /* ---------- de route ---------- */
 .route{position:relative;padding-left:var(--gutter);margin:0}
 
@@ -126,8 +144,8 @@ body{
 .footer a:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
 
 @media (prefers-reduced-motion:reduce){
-  .stop-btn{transition:none}
-  .stop-btn:hover,.stop-btn:focus-visible{transform:none}
+  .stop-btn,.social-btn{transition:none}
+  .stop-btn:hover,.stop-btn:focus-visible,.social-btn:hover,.social-btn:focus-visible{transform:none}
 }
 </style>
 </head>
@@ -156,6 +174,21 @@ body{
     <h1 class="wordmark">The Newborn Nomads</h1>
     <p class="bio">Nederlands gezin van vier op wereldreis.</p>
     <p class="coords">Nederland ✈︎ Hua Hin — 12.5684° N, 99.9577° E</p>
+
+    <ul class="socials">
+      <li><a class="social-btn" href="https://www.instagram.com/thenewbornnomads/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/>
+        </svg><span>Instagram</span></a></li>
+      <li><a class="social-btn" href="https://www.tiktok.com/@thenewbornnomads" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.4 4.6 5 5"/>
+        </svg><span>TikTok</span></a></li>
+      <li><a class="social-btn" href="https://www.youtube.com/@TheNewbornNomads" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/>
+        </svg><span>YouTube</span></a></li>
+    </ul>
   </header>
 
   <main class="route" id="route">
