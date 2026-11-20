@@ -1,0 +1,22 @@
+{
+  "_uitleg": "Eén bron voor alle merken. status: worked = content geleverd, upcoming = afgesproken maar nog niet geleverd. kit: true = staat in de mediakit (max 8 per rij). Na wijzigen: python tools/build_brands.py",
+  "brands": [
+    {"id": "pogs", "name": "POGS — kids only headphones", "url": "https://pogs.eu", "category": "kids", "status": "worked", "kit": true},
+    {"id": "capfun", "name": "Capfun", "url": "https://www.capfun.nl", "category": "travel", "status": "worked", "kit": true},
+    {"id": "linnaeushof", "name": "Linnaeushof", "url": "https://www.linnaeushof.nl", "category": "travel", "status": "worked", "kit": true},
+    {"id": "scrubba", "name": "Scrubba", "url": "https://thescrubba.com", "category": "lifestyle", "status": "worked", "kit": true},
+    {"id": "americantourister", "name": "American Tourister", "url": "https://www.americantourister.nl", "category": "lifestyle", "status": "worked", "kit": true},
+    {"id": "maesy", "name": "Maesy", "url": "https://maesy.nl", "category": "kids", "status": "worked", "kit": true},
+
+    {"id": "anantasila", "name": "Anantasila Beach Resort Hua Hin", "url": "https://www.anantasila.com", "category": "travel", "status": "upcoming", "kit": true},
+    {"id": "isanook", "name": "iSanook Resort & Suites Hua Hin", "url": "https://isanookhuahin.com", "category": "travel", "status": "upcoming", "kit": true},
+    {"id": "asiadirect", "name": "AsiaDirect", "url": "https://www.asiadirect.nl", "category": "travel", "status": "upcoming", "kit": true},
+    {"id": "joho", "name": "JoHo Insurances", "url": "https://www.expatinsurances.org", "category": "travel", "status": "upcoming", "kit": true},
+    {"id": "igorjames", "name": "Igor & James", "url": "https://igorjames.com", "category": "lifestyle", "status": "upcoming", "kit": true},
+    {"id": "numsy", "name": "Numsy", "url": "https://numsy.nl", "category": "kids", "status": "upcoming", "kit": true},
+    {"id": "qlokkie", "name": "Qlokkie", "url": "https://qlokkie.com", "category": "kids", "status": "upcoming", "kit": true},
+    {"id": "fitelastix", "name": "FITELASTIX", "url": "https://www.fitelastix.nl", "category": "lifestyle", "status": "upcoming", "kit": true},
+    {"id": "oefy", "name": "Oefy", "url": "https://oefy.nl", "category": "kids", "status": "upcoming", "kit": false},
+    {"id": "oefenboeken", "name": "Oefenboeken.nl", "url": "https://oefenboeken.nl", "category": "kids", "status": "upcoming", "kit": false}
+  ]
+}

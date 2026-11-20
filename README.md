@@ -52,3 +52,22 @@ Het domein staat bij Hostinger. De site wijst naar GitHub Pages:
 
 De MX- en TXT-records van het domein horen bij Google-mail (`smtp.google.com` en het
 SPF-record) — die **nooit** aanpassen bij een hostingwissel, anders stopt de e-mail.
+
+## Merken (site + mediakit)
+
+Alle merken staan in **`brands/brands.json`**, de logo's in `brands/<id>.png`
+(transparante PNG in merkkleur, max ~120 px hoog). Per merk:
+
+- `status`: `worked` (content geleverd) of `upcoming` (afgesproken, nog niet geleverd)
+- `kit`: `true` = staat in de mediakit (max 8 per rij; de rest telt mee in "+N more")
+
+Na een wijziging:
+
+```
+pip install pymupdf fonttools brotli
+python tools/build_brands.py
+```
+
+Dat werkt de merkenblokken op `index.html` en `nl/index.html` bij (tussen de
+`BRANDS:START`/`BRANDS:END`-markers) én pagina 3 van beide gelinkte mediakit-PDF's.
+Merk van upcoming naar geleverd? Alleen `status` aanpassen en het script draaien.
